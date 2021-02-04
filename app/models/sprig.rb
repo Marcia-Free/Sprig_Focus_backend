@@ -1,0 +1,2 @@
+class Sprig < ApplicationRecord
+end

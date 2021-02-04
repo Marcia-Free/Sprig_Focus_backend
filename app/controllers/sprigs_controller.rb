@@ -1,0 +1,2 @@
+class SprigsController < ApplicationController
+end
