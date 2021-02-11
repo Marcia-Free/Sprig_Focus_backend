@@ -5,7 +5,7 @@ class CreateGoals < ActiveRecord::Migration[6.0]
       t.text :info
       t.date :date
       t.time :time
-      t.boolean :completed
+      t.boolean :completed, default: false
 
       t.timestamps
     end

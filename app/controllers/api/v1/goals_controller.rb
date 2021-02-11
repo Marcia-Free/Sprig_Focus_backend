@@ -7,7 +7,7 @@ class Api::V1::GoalsController < ApplicationController
     
 
       def show
-        @goal = Goal.find(params[:id])
+        set_goal
         if @goal
             render json: @goal
         else
@@ -24,24 +24,25 @@ class Api::V1::GoalsController < ApplicationController
             render json: @goal.errors
           end
       end
-    
+  
 
       def update
-          if @goal.update_attributes(goal_params)
-            redirect_to @goal
+        set_goal
+          if @goal.update(goal_params)
+            render json: @goal
           else
-            render 'edit'
+            render json: @goal.errors
           end
       end
 
 
       def edit
-        @goal = Goal.find(params[:id])
+       set_goal
       end
     
 
       def destroy
-        @goal = Goal.find(params[:id])
+        set_goal
           @goal.destroy
             render json: { message: 'Goal deleted!' }
       end
@@ -54,7 +55,7 @@ class Api::V1::GoalsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def goal_params
-        params.require(:goal).permit(:name, :info, :date, :time, :user_id, :tag_id)
+        params.require(:goal).permit(:name, :info, :date, :time, :completed, :user_id, :tag_id)
       end
 
 

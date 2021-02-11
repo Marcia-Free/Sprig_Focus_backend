@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_172148) do
     t.text "info"
     t.date "date"
     t.time "time"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
@@ -66,9 +66,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_172148) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.date "date"
-    t.time "time"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "goal_id"
