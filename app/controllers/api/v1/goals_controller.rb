@@ -1,4 +1,5 @@
 class Api::V1::GoalsController < ApplicationController
+
     
       def index
         @goals = Goal.all.order(created_at: :desc)
@@ -13,6 +14,11 @@ class Api::V1::GoalsController < ApplicationController
         else
             render json: @goal.errors
         end
+      end
+
+      
+      def new
+        @goal = Goal.new
       end
 
 
