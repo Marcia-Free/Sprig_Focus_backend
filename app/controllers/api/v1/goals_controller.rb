@@ -3,14 +3,14 @@ class Api::V1::GoalsController < ApplicationController
     
       def index
         @goals = Goal.all.order(created_at: :desc)
-        render json: @goals
+        render json: @goals, :include => :tasks
       end
     
 
       def show
         set_goal
         if @goal
-            render json: @goal
+            render json: @goal, :include => :tasks
         else
             render json: @goal.errors
         end
