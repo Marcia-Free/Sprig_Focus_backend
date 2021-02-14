@@ -43,3 +43,23 @@
       goal_id: 8
     )
   end
+
+  #--------------TEST USER------
+  User.destroy_all
+
+  
+  user1 = User.create(
+    username: "sample", 
+    email: 'sample@gmail.com',
+    password: "sample")
+  
+
+
+ admin = User.create(
+    username: "admin",
+    email: 'Admin@gmail.com',
+    password: "password",
+  )
+
+
+puts 'seeded'
