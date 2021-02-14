@@ -1,5 +1,5 @@
 class GoalsController < ApplicationController
-
+  # skip_before_action :current_user, only: [:create]
     
       def index
         @goals = Goal.all.order(created_at: :desc)

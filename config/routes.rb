@@ -6,11 +6,10 @@ Rails.application.routes.draw do
       resources :tasks;
       resources :users;
 
-      # resources :users, only: [:create]
+      resources :auth, only: [:create, :show, :index]
 
-      post "/login", to: "auth#login"
-      get "/auto_login", to: "auth#auto_login"
-      get "/user_is_authed", to: "auth#user_is_authed"
+      # post '/auth', to: 'auth#create'
+      get '/current_user', to: 'auth#show'
 
   #   end
   # end

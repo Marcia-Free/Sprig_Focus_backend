@@ -1,27 +1,49 @@
   class AuthController < ApplicationController
 
-  skip_before_action :require_login, only: [:login, :auto_login]
+    def new
+      @user = User.new
+    end
+
+
+    def create
+      user = User.find_by(username: params[:username])
+
+      if user && user.authenticate(params[:password])
+        render json: user, :include => :goals
+      else
+        render json: { error: 'Username or Password does not exist.'}
+      end
   
-  def login
-    user = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-        payload = {user_id: user.id}
-        token = encode_token(payload)
-        render json: {user: user, jwt: token, success: "Welcome back, #{user.username}"}
-    else
-        render json: {failure: "Log in failed! Username or password invalid!"}
+      # find the user based on username
+      # if the user exists
+      #   verify that the password matches the one they provided
+      #   if it does:
+      #     send back that user
+      #   if not:
+      #     send error message
+      # if no user found: 
+      #  send an error
     end
+
+    def index
+      @users = User.all.order(created_at: :desc)
+      render json: @users, :include => :goals
+    end
+
+    def show
+      set_user
+
+      if @user && user.authenticate(params[:password])
+          render json: @user, :include => :goals
+      else
+          render json: @user.errors
+      end
+    end
+
+      private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(username: params[:username])
   end
 
-  def auto_login
-    if session_user
-      render json: session_user
-    else
-      render json: {errors: "No User Logged In"}
-    end
-  end
-
-  def user_is_authed
-    render json: {message: "You are authorized"}
-  end
 end
