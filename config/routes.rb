@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   #   namespace :v1 do
       resources :goals;
       resources :tasks;
-      resources :users;
 
-      resources :auth, only: [:create, :show, :index]
+      resources :auth, only: [:create, :index, :signup, :show]
 
-      # post '/auth', to: 'auth#create'
+      post '/auth', to: 'auth#create'
       get '/current_user', to: 'auth#show'
+
+
+      post '/signup', to: 'auth#signup'
+      # post '/add_friend', to: 'users#add_friend'
 
   #   end
   # end
