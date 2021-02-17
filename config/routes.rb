@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # namespace :api do
   #   namespace :v1 do
       resources :goals;
       resources :tasks;
-
+      resources :songs;
       resources :auth, only: [:create, :index, :signup, :show]
 
       post '/auth', to: 'auth#create'
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
 
 
       post '/signup', to: 'auth#signup'
-      # post '/add_friend', to: 'users#add_friend'
 
   #   end
   # end

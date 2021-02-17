@@ -2,7 +2,7 @@
 
     def index
       @users = User.all.order(created_at: :desc)
-      render json: @users, :include => :goals
+      render json: @users, include: [:goals, :songs]
     end
 
     def new
