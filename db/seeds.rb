@@ -5,12 +5,10 @@
 #--------------GOALS------
 Goal.destroy_all
 
-4.times do |i|
+5.times do |i|
     Goal.create(
       name: "Goal #{i + 1}",
-      info: "Goal Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
-      Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.",
+      info: "Goal Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus.",
       user_id: 1
     )
   end
@@ -21,9 +19,7 @@ Task.destroy_all
   3.times do |i|
     Task.create(
       name: "Task #{i + 1}",
-      description: "Task Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et 
-      magnis dis parturient montes, nascetur ridiculus mus.",
+      description: "Task Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
       goal_id: 1
     )
   end
@@ -31,9 +27,7 @@ Task.destroy_all
   2.times do |i|
     Task.create(
       name: "Task #{i + 1}",
-      description: "Task Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et 
-      magnis dis parturient montes, nascetur ridiculus mus.",
+      description: "Task Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
       goal_id: 2
     )
   end
@@ -41,9 +35,7 @@ Task.destroy_all
   4.times do |i|
     Task.create(
       name: "Task #{i + 1}",
-      description: "Task Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
-      Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et 
-      magnis dis parturient montes, nascetur ridiculus mus.",
+      description: "Task Description Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
       goal_id: 4
     )
   end
@@ -55,8 +47,10 @@ Task.destroy_all
   user1 = User.create(
     username: "Marcia", 
     email: 'Marcia@gmail.com',
-    password: "12345")
-  
+    password: "12345",
+    avatar: 'https://www.flaticon.com/svg/vstatic/svg/3667/3667336.svg?token=exp=1613591931~hmac=cfe5576939232fd400b68965b4ed2b42'
+    )
+
 
 
  admin = User.create(

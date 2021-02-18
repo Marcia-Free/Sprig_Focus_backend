@@ -14,7 +14,7 @@
       user = User.find_by(username: params[:username])
 
       if user && user.authenticate(params[:password])
-        render json: user, :include => :goals
+        render json: user, include: [:goals, :songs]
       else
         render json: { error: 'Username or Password does not exist.'}
       end
