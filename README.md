@@ -1,26 +1,22 @@
-# README
+# Sprig Focus backend
 
-# Sprig_Tasks_backend README
+A cute gamified Task Manager built with Javascript and BabylonJS.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Built With
+* BabylonJS
+* Javascript frontend
+* React and Redux
+* JWT Tokens
+* SemanticUI with HTML/CSS
+* PostgreSQL database
 
-* Ruby version
 
-* System dependencies
+### Install Instructions
+1. ```bundle install```
+2. ```rails s```
+3. Start frontend project here (https://github.com/Marcia-Free/Sprig_Focus_frontend)
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Authors
+* **Marcia Freeman**
