@@ -4,5 +4,7 @@ class User < ApplicationRecord
 
     has_many :goals
     has_many :songs
+    has_one :sprig
+    has_many :items, through: :inventory
 
 end
