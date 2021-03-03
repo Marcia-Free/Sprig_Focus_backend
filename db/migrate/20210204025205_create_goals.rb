@@ -6,6 +6,7 @@ class CreateGoals < ActiveRecord::Migration[6.0]
       t.date :date
       t.time :time
       t.boolean :completed, default: false
+      t.string :imageurl
 
       t.timestamps
     end

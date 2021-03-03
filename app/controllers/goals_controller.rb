@@ -1,5 +1,5 @@
-class Api::V1::GoalsController < ApplicationController
-
+class GoalsController < ApplicationController
+  # skip_before_action :current_user, only: [:create]
     
       def index
         @goals = Goal.all.order(created_at: :desc)
@@ -61,7 +61,7 @@ class Api::V1::GoalsController < ApplicationController
   
       # Only allow a trusted parameter "white list" through.
       def goal_params
-        params.require(:goal).permit(:name, :info, :date, :time, :completed, :user_id, :tag_id)
+        params.require(:goal).permit(:name, :info, :date, :time, :completed, :imageurl, :user_id, :tag_id)
       end
 
 
