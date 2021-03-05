@@ -14,7 +14,7 @@
       user = User.find_by(username: params[:username])
 
       if user && user.authenticate(params[:password])
-        render json: user, include: [:goals, :songs]
+        render json: user, include: [:goals, :tasks, :songs]
       else
         render json: { error: 'Username or Password does not exist.'}
       end
@@ -33,7 +33,7 @@
     def signup
       @user = User.create(user_params)
       if @user.save
-        render json: @user, :include => :goals
+        render json: @user, :include => [:goals, :tasks, :songs]
       else
         render json: @user.errors
       end
@@ -45,7 +45,7 @@
       set_user
 
       if @user && user.authenticate(params[:password])
-          render json: @user, :include => :goals
+          render json: @user, :include => [:goals, :tasks, :songs]
       else
           render json: @user.errors
       end
